@@ -1,0 +1,51 @@
+<router-outlet #Outlet="outlet"></router-outlet>
+
+<div class="container" [hidden]="Outlet.isActivated">
+  <br>
+  <div>
+    <a class="btn btn-success" routerLink="/admin/brand/Add">Add New Brand</a>
+  </div><br>
+  <div class="card">
+
+    <div class="card-body">
+
+
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>
+              ID
+            </th>
+            <th>
+              Name
+            </th>
+            <th>
+              Photo
+            </th>
+            <th>
+              Edit
+            </th>
+            <th>
+              Delete
+            </th>
+          </tr>
+
+        </thead>
+        <tbody>
+          <tr *ngFor="let brand of brands">
+            <td>{{brand.Id}}</td>
+            <td>{{brand.Name}}</td>
+            <td><img src="http://localhost:9602/Content/Imgs/Brands/{{brand.Photo}}" width="100px" height="100px"></td>
+            <td>
+              <a class="btn btn-primary" routerLink="/admin/brand/Edit/{{brand.Id}}">Edit Brand</a>
+            </td>
+            <td>
+              <a class="btn btn-danger" (click)="ConfirmDelete(brand.Id)" routerLink="/admin/brand">Delete Brand</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

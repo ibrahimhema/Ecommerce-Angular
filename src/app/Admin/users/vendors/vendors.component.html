@@ -1,0 +1,27 @@
+<div class="container">
+
+    <div class="btn-group row w-100" role="group " aria-label="...">
+        <a type="button" routerLink="/admin/users" class="w-33 btn btn-default">Users</a>
+        <a type="button" routerLink="/admin/users/vendors"class="w-33 btn btn-default active">Vendors</a>
+        <a type="button" routerLink="/admin/users/admins" class="w-33 btn btn-default">Admins</a>
+    </div>
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Full name</th>
+                <th>Email</th>
+                <!-- <th>Actions</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of Vendors">
+                <td>{{user.FirstName +" "+ user.LastName | titlecase}}</td>
+                <td>{{user.Email}}</td>
+                <!-- <td>{{user.Email}}</td> -->
+            </tr>
+            <!-- and so on... -->
+        </tbody>
+    </table>
+
+</div>

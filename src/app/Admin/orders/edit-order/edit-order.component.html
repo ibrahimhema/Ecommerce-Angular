@@ -1,0 +1,59 @@
+
+
+<div class="container">
+    <form #CheckOutForm="ngForm" novalidate (ngSubmit)="UpdateOrder(CheckOutForm.value)" >
+   
+
+        <div class="form-group">
+            <label>Total Price</label>
+            <input name="Total_Price" id="Total_Price" readonly required  type="text" [(ngModel)]="order.Total_Price"   class="form-control" />
+            
+        </div>
+        <div class="form-group">
+            <label>Payment</label>
+            <input name="Payment" id="Total_Price" readonly required  type="text" [(ngModel)]="order.Payment_Id"   class="form-control" />
+            
+        </div>
+
+        <div class="form-group">
+            <label>Status</label>
+            <div class="payment-method">
+                <div class="input-radio">
+                    <input type="radio" name="Status" id="Status-1" ngModel value="Delivered" required >
+                    <label for="Status-1">
+                        <span></span>
+                        Delivered
+                    </label>
+        
+                </div>
+                <div class="input-radio">
+                    <input type="radio" name="Status" id="Status-2" ngModel value="Pending" selected required>
+                    <label for="Status-2">
+                        <span></span>
+                        Pending
+                    </label>
+        
+                </div>
+                <div class="input-radio">
+                    <input type="radio" name="Status" id="Status-3" ngModel value="Cancelled" required>
+                    <label for="Status-3">
+                        <span></span>
+                        Cancelled
+                    </label>
+        
+                </div>
+            </div>
+            
+        </div>
+        
+            
+    
+      
+        <input type="submit"class="btn btn-primary" [disabled]="CheckOutForm.form.invalid" value="updateOrder">
+      
+    </form>
+</div>
+ 
+
+
+

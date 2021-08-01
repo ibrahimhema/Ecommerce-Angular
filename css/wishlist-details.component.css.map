@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../src/app/wishlist-details/wishlist-details.component.scss"
+    ],
+    "names": [],
+    "file": "wishlist-details.component.css"
+}

@@ -1,0 +1,321 @@
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- Product main img -->
+            <div class="col-md-5 col-md-push-2">
+                <div id="product-main-img">
+                    <div class="product-preview">
+                        <img src="http://localhost:9602/Content/Imgs/Products/{{productdetails.Photo}}" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2  col-md-pull-5">
+                <div id="product-imgs">
+                    <div class="product-preview">
+                        <img src="http://localhost:9602/Content/Imgs/Products/{{productdetails.Photo}}" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- /Product thumb imgs -->
+            <!-- Product details -->
+            <div class="col-md-5">
+                <div class="product-details">
+                    <h2 class="product-name">{{productdetails.Name}}</h2>
+                    <div>
+                        <div class="product-rating">
+                            <i class="fa fa-star" [class.colorRateStar]="productdetails.RatingDetail.aveg >= 1"></i>
+                            <i class="fa fa-star" [class.colorRateStar]="productdetails.RatingDetail.aveg >= 2"></i>
+                            <i class="fa fa-star" [class.colorRateStar]="productdetails.RatingDetail.aveg >= 3"></i>
+                            <i class="fa fa-star" [class.colorRateStar]="productdetails.RatingDetail.aveg >= 4"></i>
+                            <i class="fa fa-star" [class.colorRateStar]="productdetails.RatingDetail.aveg > 4.5"></i>
+                        </div>
+                        <a class="review-link" href="#">{{productdetails.RatingDetail.count}}} Review(s) | Add your review</a>
+                    </div>
+                    <div>
+                        <h3 class="product-price">${{productdetails.Offer_Price}} <del class="product-old-price">${{productdetails.Price}}</del></h3>
+                        <span class="product-available">In Stock</span>
+                    </div>
+                    <p>
+                        {{productdetails.Desc}}
+                    </p>
+
+                    <div class="product-options">
+                        <div class="qty-label">
+                            Vendor Name :
+                            <span style="color:blue">{{productdetails.Vendor_Name}}</span> |
+                            Qty Avaiable Now :
+                            <span style="color:blue">{{productdetails.Quantity}}</span>
+
+                        </div>
+                        <!--<label>
+                            Color
+                            <select class="input-select">
+                                <option value="0">Red</option>
+                            </select>
+                        </label>-->
+                    </div>
+
+                    <div class="add-to-cart">
+                        <!--<div class="qty-label">
+                            Qty
+                            <div class="input-number">
+                                <input type="number">-->
+                                <!--<span class="qty-up">+</span>
+                                <span class="qty-down">-</span>-->
+                            <!--</div> click="addToCart({{productdetails.Id}})
+                        </div>-->
+                        <button class="add-to-cart-btn" (click)="AddToCart()"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                    </div>
+
+                    <!--<ul class="product-btns">
+                        <li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>-->
+                        <!--<li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li>-->
+                    <!--</ul>-->
+
+                    <ul class="product-links">
+                        <li>Category:</li>
+                        <li><a href="#">Headphones</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+
+                    <ul class="product-links">
+                        <li>Share:</li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+                    </ul>
+
+                </div>
+            </div>
+            <!-- /Product details -->
+            <!-- Product tab -->
+            <div class="col-md-12">
+                <div id="product-tab">
+                    <!-- product tab nav -->
+                    <ul class="tab-nav">
+                        <li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
+                        <li><a data-toggle="tab" href="#tab2">Details</a></li>
+                        <li><a data-toggle="tab" href="#tab3">Reviews ({{productdetails.RatingDetail.count}})</a></li>
+                    </ul>
+                    <!-- /product tab nav -->
+                    <!-- product tab content -->
+                    <div class="tab-content">
+                        <!-- tab1  -->
+                        <div id="tab1" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>
+                                        {{productdetails.Desc}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /tab1  -->
+                        <!-- tab2  -->
+                        <div id="tab2" class="tab-pane fade in">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Vendor : {{productdetails.Vendor_Name}}</p>
+                                    <p> Reviews for {{productdetails.Name}}: ({{productdetails.RatingDetail.count}}) Review(s)</p>
+                                    <p>Price : {{productdetails.Price}} | Offer price : {{productdetails.Offer_Price}} </p>
+                                    <p>Sell Count: {{productdetails.Sell_Count}}</p>
+                                    <p>Product Rate According to Customers : {{productdetails.RatingDetail.pres}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /tab2  -->
+                        <!-- tab3  -->
+                        <div id="tab3" class="tab-pane fade in">
+                            <div class="row">
+                                <!-- Rating -->
+                                <div class="col-md-3">
+                                    <div id="rating">
+                                        <div class="rating-avg">
+                                            <span>{{productdetails.RatingDetail.aveg}}</span>
+                                            <div class="rating-stars">
+                                                <i class="fa fa-star" [class.colorRateStar]="productdetails.RatingDetail.aveg >= 1"></i>
+                                                <i class="fa fa-star" [class.colorRateStar]="productdetails.RatingDetail.aveg >= 2"></i>
+                                                <i class="fa fa-star" [class.colorRateStar]="productdetails.RatingDetail.aveg >= 3"></i>
+                                                <i class="fa fa-star" [class.colorRateStar]="productdetails.RatingDetail.aveg >= 4"></i>
+                                                <i class="fa fa-star" [class.colorRateStar]="productdetails.RatingDetail.aveg > 4.5" ></i>
+                                            </div>
+                                        </div>
+                                        <ul class="rating">
+                                            <li>
+                                                <div class="rating-stars">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>
+                                                <div class="rating-progress">
+                                                    <div style="width:{{productdetails.RatingDetail.rat5pres}}%"></div>
+                                                </div>
+                                                <span class="sum">{{productdetails.RatingDetail.rat5}}</span>
+                                            </li>
+                                            <li>
+                                                <div class="rating-stars">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <div class="rating-progress">
+                                                    <div style="width:{{productdetails.RatingDetail.rat4pres}}%;"></div>
+                                                </div>
+                                                <span class="sum">{{productdetails.RatingDetail.rat4}}</span>
+                                            </li>
+                                            <li>
+                                                <div class="rating-stars">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <div class="rating-progress">
+                                                    <div style="width: {{productdetails.RatingDetail.rat3pres}}%;"></div>
+                                                </div>
+                                                <span class="sum">{{productdetails.RatingDetail.rat3}}</span>
+                                            </li>
+                                            <li>
+                                                <div class="rating-stars">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <div class="rating-progress">
+                                                    <div style="width:{{productdetails.RatingDetail.rat2pres}}%;"></div>
+                                                </div>
+                                                <span class="sum">{{productdetails.RatingDetail.rat2}}</span>
+                                            </li>
+                                            <li>
+                                                <div class="rating-stars">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <div class="rating-progress">
+                                                    <div style="width: {{productdetails.RatingDetail.rat1pres}}%;"></div>
+                                                </div>
+                                                <span class="sum">{{productdetails.RatingDetail.rat1}}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- /Rating -->
+                                <!-- Reviews -->
+                                <div class="col-md-6">
+                                    <div id="reviews">
+                                        <ul class="reviews">
+                                          
+                                                <li *ngFor="let rating of productdetails.Ratings">
+                                                    <div class="review-heading">
+                                                        <h5 class="name">{{rating.Username}}</h5>
+                                                        <p class="date">{{rating.Created_at}}</p>
+                                                        <div class="review-rating">
+                                                            <i class="fa fa-star" [class.colorRateStar]="rating.Rate >= 1"></i>
+                                                            <i class="fa fa-star" [class.colorRateStar]="rating.Rate >= 2"></i>
+                                                            <i class="fa fa-star" [class.colorRateStar]="rating.Rate >= 3"></i>
+                                                            <i class="fa fa-star" [class.colorRateStar]="rating.Rate >= 4"></i>
+                                                            <i class="fa fa-star" [class.colorRateStar]="rating.Rate > 4.5"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="review-body">
+                                                        <p width="15%">{{rating.Comment}}</p>
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                        <!--<ul class="reviews-pagination">
+                                            <li class="active">1</li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                                        </ul>-->
+                                    </div>
+                                </div>
+                                <!-- /Reviews -->
+                                <!-- Review Form action="/auproduct/AddRate"-->
+                                <div class="col-md-3">
+                                    <div id="review-form">
+                                        <form class="review-form" method="post" #userform="ngForm"  name="userForm" novalidate (ngSubmit)="onSubmit()">
+                                            <input type="hidden" name="Product_Id" value="{{productdetails.Id}}"  [(ngModel)]="ratingModel.Product_Id">
+                                            <input type="hidden" name="User_Id" value="Khaled Ahmed"  [(ngModel)]="ratingModel.User_Id">
+                                            <input class="input" type="text" name="Username" placeholder="Your Name"  [(ngModel)]="ratingModel.Username" required>
+                                            <input class="input" type="email" name="email" [(ngModel)]="email" placeholder="Your Email" >              
+                                            <textarea class="input" name="comment" [(ngModel)]="ratingModel.Comment"  pattern="[a-zA-Z0-9_ ]{20,}" [class.is-invalid]="Comment.invalid && Comment.touched" placeholder="Your Review" #Comment="ngModel" required></textarea>
+                                            <div *ngIf="Comment.touched && Comment.invalid">
+                                                <small class="text-danger" *ngIf="Comment.errors?.required">the Comment is Required</small>
+                                                <small class="text-danger" *ngIf="Comment.errors?.pattern">Comment must be more than (20) charaters</small>
+                                             </div>
+                                            <div class="input-rating">
+                                                <span>Your Rating: </span>
+                                                <div class="stars">
+                                                    <input id="star5" #Rate="ngModel" [class.is-invalid]="Rate.invalid && Rate.touched" name="Rate" [(ngModel)]="ratingModel.Rate" value="5" type="radio" required><label for="star5"></label>
+                                                    <input id="star4" #Rate="ngModel" [class.is-invalid]="Rate.invalid && Rate.touched" name="Rate" [(ngModel)]="ratingModel.Rate" value="4" type="radio" required><label for="star4"></label>
+                                                    <input id="star3" #Rate="ngModel" [class.is-invalid]="Rate.invalid && Rate.touched" name="Rate" [(ngModel)]="ratingModel.Rate" value="3" type="radio" required><label for="star3"></label>
+                                                    <input id="star2" #Rate="ngModel" [class.is-invalid]="Rate.invalid && Rate.touched" name="Rate" [(ngModel)]="ratingModel.Rate" value="2" type="radio" required><label for="star2"></label>
+                                                    <input id="star1" #Rate="ngModel" [class.is-invalid]="Rate.invalid && Rate.touched" name="Rate" [(ngModel)]="ratingModel.Rate" value="1" type="radio" required><label for="star1"></label>
+                                                </div>
+                                                <div *ngIf="Rate.touched && Rate.invalid">
+                                                    <small class="text-danger" *ngIf="Rate.errors?.required">the Rate is Required</small>
+                                                 </div>
+                                            </div>
+                                            <input type="submit" class="primary-btn"  name="submit"  value="Submit"/>
+                                        </form>
+                                        <small class="text-danger" >{{error}}</small>
+                                    </div>
+                                </div>
+                                <!-- /Review Form -->
+                            </div>
+                        </div>
+                        <!-- /tab3  -->
+                    </div>
+                    <!-- /product tab content  -->
+                </div>
+            </div>
+            <!-- /product tab -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+<!-- Section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h3 class="title">Related Products</h3>
+                </div>
+            </div>
+
+            <!-- product -->
+
+                <app-product [product]="product" [hidden]="true" *ngFor="let product of productdetails.RelatedProducts" ></app-product>
+    
+        </div>
+    </div>
+
+    <!-- /container -->
+</div>
+<!-- /Section -->
+
+   

@@ -1,0 +1,109 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      {{errors}}
+      <form action="/" #productForms="ngForm" name="productForm" novalidate (ngSubmit)="onSubmit()">
+
+        <br>
+        <div>
+          <label for="photo">Product Image</label>
+        </div>
+        <div class="form-group" id="imageContainer">
+          <img [src]="imageUrl" width="120px" height="120px">
+          <input type="file" id="avatar" name="avatar" (change)="fileHandle($event.target)"
+            accept="image/png, image/jpeg">
+        </div>
+
+        <div class="form-group">
+          <label for="Name"> Name:</label>
+          <input type="text" class="form-control" id="Name" name="Name"
+            [class.is-invalid]="Name.invalid && Name.touched" [(ngModel)]="productData.Name" #Name="ngModel" required>
+
+          <div *ngIf="Name.touched && Name.invalid">
+            <small class="text-danger" *ngIf="Name.errors?.required">Name is
+              required</small>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="Price">Price :</label>
+          <input type="number" class="form-control" id="Price" name="Price"
+            [class.is-invalid]="Price.invalid &&Price.touched" [(ngModel)]="productData.Price" #Price="ngModel"
+            required>
+
+          <div *ngIf="Price.touched && Price.invalid">
+            <small class="text-danger" *ngIf="Price.errors?.required">Price is
+              required</small>
+
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Offer_Price">offer_price:</label>
+          <input type="text" class="form-control" id="Offer_Price" name="Offer_Price"
+            [class.is-invalid]="Offer_Price.invalid &&Offer_Price.touched" [(ngModel)]="productData.Offer_Price"
+            #Offer_Price="ngModel">
+
+
+        </div>
+
+        <div class="form-group">
+          <label for="Quantity">Quantity :</label>
+          <input type="number" class="form-control" id="Quantity" name="Quantity"
+            [class.is-invalid]="Quantity.invalid &&Quantity.touched" [(ngModel)]="productData.Quantity"
+            #Quantity="ngModel" required>
+
+          <div *ngIf="Quantity.touched && Quantity.invalid">
+            <small class="text-danger" *ngIf="Quantity.errors?.required">Quantity is
+              required</small>
+
+          </div>
+        </div>
+        <div class="form-group" hidden>
+          <label for="Vendor_User_id">Vendor ID :</label>
+          <input type="text" class="form-control" id="Vendor_User_id" name="Vendor_User_id"
+            [class.is-invalid]="Vendor_User_id.invalid &&Vendor_User_id.touched"
+            [(ngModel)]="productData.Vendor_User_id" #Vendor_User_id="ngModel" required>
+
+          <div *ngIf="Vendor_User_id.touched && Vendor_User_id.invalid">
+            <small class="text-danger" *ngIf="Vendor_User_id.errors?.required">Vendor_User_id is
+              required</small>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="Desc">Desccription:</label>
+          <input type="text" class="form-control" id="Desc" name="Desc" [class.is-invalid]="Desc.invalid &&Desc.touched"
+            [(ngModel)]="productData.Desc" #Desc="ngModel" required>
+
+          <div *ngIf="Desc.touched && Desc.invalid">
+            <small class="text-danger" *ngIf="Desc.errors?.required">Desc is
+              required</small>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label> Sub_Cat_Id</label>
+          <select #Sub_Cat_Id="ngModel" required [(ngModel)]=productData.Sub_Cat_Id class="form-control"
+            name="Sub_Cat_Id">
+            <option [value]="sub.Id" *ngFor="let sub of SubCategories">{{sub.Name}}</option>
+
+          </select>
+        </div>
+        <div class="form-group">
+          <label> Brand</label>
+          <select #Brand_Id="ngModel" required [(ngModel)]=productData.Brand_Id class="form-control" name="Brand_Id">
+            <option [value]="brand.Id" *ngFor="let brand of Brands">{{brand.Name}}</option>
+
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-default" [disabled]="productForms.form.invalid">Add The product</button>
+      </form>
+
+
+    </div>
+  </div>
+</div>

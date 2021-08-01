@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../src/app/Admin/brand/Index/brand.component.scss"
+    ],
+    "names": [],
+    "file": "brand.component.css"
+}

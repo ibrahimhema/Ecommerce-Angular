@@ -1,0 +1,23 @@
+
+<div class="container">
+    <h2>Edit Brand</h2>
+    <form #brandForm="ngForm" (ngSubmit)="UpdateBrand()" >
+
+        
+            <div class="form-group" >
+                <label>brand Name</label> 
+                <input name="Name" required type="text" [(ngModel)]="brand.Name" class="form-control" />
+
+            </div>
+            <br>
+            <div id="imageContainer" class="rounded-circle">
+                <input type="file" name="Photo" id="Photo" (change)="fileHandle($event.target)" [(ngModel)]="brand.imageFile" accept="image/png, image/jpeg, image/jpg"
+                    class="form-control" />
+                <img src="{{ImageUrl}}" id="img" class="h-100 w-100" />
+            </div>
+        
+        <br>
+        <input type="submit" class="btn btn-primary" value="Edit Brand">
+        <button class="btn btn-danger" style="margin-left: 2rem;" routerLink="/admin/brand">Back</button>
+    </form>
+</div>

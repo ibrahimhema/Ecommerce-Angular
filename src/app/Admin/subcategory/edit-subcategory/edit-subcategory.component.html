@@ -1,0 +1,59 @@
+<div class="container">
+  <h2>Edit Subcategory</h2>
+  <br>
+  <form #subCatForm="ngForm" novalidate (ngSubmit)="onSubmit(subCatForm.value)" enctype='multipart/form-data'>
+
+    <div>
+      <label for="Photo">Image</label>
+    </div>
+    <div class="form-group" id="imageContainer">
+      <img src="{{imageUrl}}"  width="120px" height="120px">
+      <input type="file" id="Photo" name="Photo" (change)="fileHandle($event.target)" accept="image/png, image/jpeg">
+    </div>
+
+    <div class="form-group">
+      <label for="Name">Subcategory Name :</label>
+      <input name="Namee" id="Name" required width="50%" type="text" #Name="ngModel"
+        [class.invalid]="Name.invalid && Name.touched" [(ngModel)]="subcategory.Name" class="form-control" />
+      <div *ngIf="Name.touched && Name.invalid">
+        <small class="text-danger" *ngIf="Name.errors?.required">Name is required</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="Cat_Id">Main Subcategory Name :</label><br>
+      <select name="Cat_Id" [(ngModel)]="subcategory.Cat_Id" id="Cat_Id" #Cat_Id="ngModel"
+        [class.invalid]="Cat_Id.invalid && Cat_Id.touched" class="form-control" required>
+        <option *ngFor="let main of maincategories" value="{{main.Id}}">{{main.Name}}</option>
+      </select>
+      <div *ngIf="Cat_Id.touched && Cat_Id.invalid">
+        <small class="text-danger" *ngIf="Cat_Id.errors?.required">the Main Category for this Subcategory is
+          required</small>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="Parent_Id">Parent Subcategory Name :</label><br>
+      <select name="Parent_Id" [(ngModel)]="subcategory.Parent_Id" Id="Parent_Id" #Parent_Id="ngModel"
+        class="form-control" [class.is-invalid]="Parent_Id.invalid && Parent_Id.touched" required>
+        <option value="0" [class.selected]="null == subcategory.Id">Basic Sub Category</option>
+        <option *ngFor="let sub of subcategories" value="{{sub.Id}}" [class.selected]="sub.Id === subcategory.Id">
+          {{sub.Name}}</option>
+      </select>
+      <div *ngIf="Parent_Id.touched && Parent_Id.invalid">
+        <small class="text-danger" *ngIf="Parent_Id.errors?.required">please select Subcategory of this Subcategory or
+          make it Subcategory Base </small>
+      </div>
+
+    </div>
+    
+    <br>
+    <input type="submit" class="btn btn-primary" [disabled]="subCatForm.form.invalid" value="Edit Subcategory">
+    <button class="btn btn-danger" style="margin-left: 2rem;" routerLink="/admin/subcategory">Back</button>
+
+
+  </form>
+
+
+</div>

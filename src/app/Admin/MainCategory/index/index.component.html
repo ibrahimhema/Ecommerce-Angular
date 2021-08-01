@@ -1,0 +1,52 @@
+<router-outlet #Outlet="outlet"></router-outlet>
+
+<div class="container" [hidden]="Outlet.isActivated">
+  <br>  <div>
+    <a class="btn btn-success" routerLink="/admin/MainCategory/Add">Add New MainCategory</a>
+  </div><br>
+  <div class="card">
+    
+      <div class="card-body">
+      
+        
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>
+                ID
+              </th>
+              <th>
+                Name
+              </th>
+              <th>
+                Photo
+              </th>
+              <th>
+                Edit
+              </th>
+              <th>
+                Delete
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cat of main_Cat">
+                <td>{{cat.Id}}</td>
+                <td>{{cat.Name}}</td>
+                <td><img src="http://localhost:9602/Content/Imgs/Main_Categories/{{cat.Photo}}" width="100px" height="100px"></td>
+                <td>
+                  <a class="btn btn-primary" routerLink="/admin/MainCategory/Edit/{{cat.Id}}" >Edit MainCategory</a>
+                </td>
+                <td>
+                  <a class="btn btn-danger" (click)="ConfirmDelete(cat.Id)" routerLink="/admin/MainCategory">Delete mainCategory</a>
+                </td>
+            </tr>
+                
+              
+            </tbody>
+          </table>
+      </div>
+    </div>
+</div>
+
+

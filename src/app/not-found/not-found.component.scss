@@ -1,0 +1,34 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500);
+
+.button {
+  font-weight: 300;
+  color: #fff;
+  font-size: 1.2em;
+  text-decoration: none;
+  border: 1px solid #efefef;
+  padding: .5em;
+  border-radius: 3px;
+  float: left;
+  margin: 6em 0 0 -155px;
+  left: 50%;
+  position: relative;
+  transition: all .3s linear;
+}
+
+.button:hover {
+  background-color: #007aff;
+  color: #fff;
+}
+
+p {
+  font-size: 2em;
+  text-align: center;
+  font-weight: 100;
+}
+
+h1 {
+  text-align: center;
+  font-size: 15em;
+  font-weight: 100;
+  text-shadow: #D10024 1px 1px, #D10024 2px 2px, #D10024 3px 3px, #D10024 4px 4px, #D10024 5px 5px, #D10024 6px 6px, #D10024 7px 7px, #D10024 8px 8px, #D10024 9px 9px, #D10024 10px 10px, #D10024 11px 11px, #D10024 12px 12px, #0063cf 13px 13px, #0063cf 14px 14px, #0063cf 15px 15px, #0063d0 16px 16px, #0064d0 17px 17px, #D10024 18px 18px, #0064d0 19px 19px, #0064d1 20px 20px, #0064d1 21px 21px, #0064d1 22px 22px, #0064d1 23px 23px, #D10024 24px 24px, #0065d2 25px 25px, #0065d2 26px 26px, #0065d2 27px 27px, #0065d3 28px 28px, #0065d3 29px 29px, #0065d3 30px 30px, #D10024 31px 31px, #0065d4 32px 32px, #0065d4 33px 33px, #0066d4 34px 34px, #0066d4 35px 35px, #0066d5 36px 36px, #0066d5 37px 37px, #0066d5 38px 38px, #D10024 39px 39px;
+}

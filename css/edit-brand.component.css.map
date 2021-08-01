@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../src/app/Admin/brand/edit-brand/edit-brand.component.scss"
+    ],
+    "names": [],
+    "file": "edit-brand.component.css"
+}

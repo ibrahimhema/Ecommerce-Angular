@@ -1,0 +1,12 @@
+<div>
+    <div class="cart-list">
+        <app-cart-product class="product-widget" [Quantity]="CartProduct.Quantity" [Product_Id]="CartProduct.Product_Id" *ngFor="let CartProduct of cartContent"></app-cart-product>
+    </div>
+    <div class="cart-summary">
+        <small>{{cartCount}} Item(s) selected</small>
+        <h5>TOTAL: {{ total | currency:'$' }}</h5>
+    </div>
+    <div class="cart-btns">
+        <a (click)="GoToChechOut()" class="w-100">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+</div>

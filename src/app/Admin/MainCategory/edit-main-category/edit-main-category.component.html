@@ -1,0 +1,24 @@
+
+<div class="container">
+    <h2>Edit MainCategory</h2>
+    <br>
+    <form #brandForm="ngForm" (ngSubmit)="UpdateMain_Cat()" >
+
+        
+            <div class="form-group" >
+                <label>mainCategory Name</label> 
+                <input name="Name" required type="text" [(ngModel)]="main_Cat.Name" class="form-control" />
+
+            </div>
+            <br>
+            <div id="imageContainer" class="rounded-circle">
+                <input type="file" name="Photo" id="Photo" (change)="fileHandle($event.target)" [(ngModel)]="main_Cat.imageFile" accept="image/png, image/jpeg, image/jpg"
+                    class="form-control" />
+                <img src="{{ImageUrl}}" id="img" class="h-100 w-100" />
+            </div>
+        
+        <br>
+        <input type="submit" class="btn btn-primary" value="Edit mainCategory">
+        <button class="btn btn-danger" style="margin-left: 2rem;" routerLink="/admin/MainCategory">Back</button>
+    </form>
+</div>

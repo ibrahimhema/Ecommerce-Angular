@@ -1,0 +1,38 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <br>
+      {{eorrors}}
+      <form action="/" #userForms="ngForm" name="userForm" novalidate (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Username:</label>
+          <input type="text" class="form-control" id="email" name="email" [class.is-invalid]="email.invalid &&email.touched" [(ngModel)]="loginData.username"
+           #email="ngModel" required >
+       
+           <div *ngIf="email.touched && email.invalid">
+           <small class="text-danger"
+           *ngIf="email.errors?.required">Email is
+           required</small>
+           
+           </div>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="pwd" name="password" [(ngModel)]="loginData.password" [class.is-invalid]="password.invalid && password.touched" #password="ngModel" required>
+        </div>
+      
+         
+         
+          <div class="checkbox">
+            <label><input type="checkbox"> Remember me</label>
+          </div>
+          <button type="submit" class="btn btn-default" [disabled]="userForms.form.invalid">Login</button>
+        </form>
+
+
+    </div>
+  </div>
+</div>
+
+

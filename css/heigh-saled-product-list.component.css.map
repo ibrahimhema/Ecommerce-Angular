@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../src/app/heigh-saled-product-list/heigh-saled-product-list.component.scss"
+    ],
+    "names": [],
+    "file": "heigh-saled-product-list.component.css"
+}
